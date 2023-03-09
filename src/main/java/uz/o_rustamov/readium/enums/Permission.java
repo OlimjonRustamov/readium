@@ -44,4 +44,8 @@ public enum Permission {
     VIEW_GRADES,
     ASSESS_STUDENT,
 
+    VIEW_PAYMENTS,
+    DELETE_PAYMENT,
+    CREATE_PAYMENT,
+
 }
