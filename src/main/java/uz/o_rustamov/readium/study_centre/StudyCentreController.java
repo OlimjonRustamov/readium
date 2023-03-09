@@ -24,8 +24,8 @@ public class StudyCentreController {
 
     @PreAuthorize(value = "hasAuthority('VIEW_STUDY_CENTRES')")
     @GetMapping
-    public HttpEntity<ApiResponse> getStudyCentres() {
-        return studyCentreService.getAllStudyCentres();
+    public HttpEntity<ApiResponse> getStudyCentres(@RequestParam("page") int page, @RequestParam("size") int size) {
+        return studyCentreService.getAllStudyCentres(page, size);
     }
 
     @PreAuthorize(value = "hasAuthority('VIEW_STUDY_CENTRES')")

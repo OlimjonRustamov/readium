@@ -1,5 +1,6 @@
 package uz.o_rustamov.readium.study_centre.service;
 
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -23,10 +24,9 @@ public class StudyCentreServiceImpl implements StudyCentreService {
     }
 
     @Override
-    public HttpEntity<ApiResponse> getAllStudyCentres() {
-        return ResponseEntity.ok(new ApiResponse(null, 200, studyCentreRepository.findAll()));
+    public HttpEntity<ApiResponse> getAllStudyCentres(int page, int size) {
+        return ResponseEntity.ok(new ApiResponse(null, 200, studyCentreRepository.findAll(PageRequest.of(page, size))));
     }
-
     @Override
     public HttpEntity<ApiResponse> getSingleStudyCentre(long id) {
         Optional<StudyCentre> optionalStudyCentre = studyCentreRepository.findById(id);

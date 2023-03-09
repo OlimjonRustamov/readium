@@ -7,7 +7,7 @@ import uz.o_rustamov.readium.user.model.UserDto;
 
 public interface StudyCentreService {
 
-    HttpEntity<ApiResponse> getAllStudyCentres();
+    HttpEntity<ApiResponse> getAllStudyCentres(int page, int size);
 
     HttpEntity<ApiResponse> getSingleStudyCentre(long id);
 
