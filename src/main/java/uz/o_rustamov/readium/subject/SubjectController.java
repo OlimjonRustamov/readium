@@ -22,29 +22,30 @@ public class SubjectController {
 
     @PreAuthorize("hasAuthority('VIEW_SUBJECTS')")
     @GetMapping()
-    HttpEntity<?> getAllSubjectsOfStudyCentre(@CurrentUser User user) {
-        return subjectService.getSubjectsOfStudyCentre(user);
+    HttpEntity<?> getAllSubjectsOfStudyCentre(@CurrentUser User user,
+                                              @RequestParam("page") int page, @RequestParam("size") int size) {
+        return subjectService.getSubjectsOfStudyCentre(user, page, size);
     }
 
     @PreAuthorize("hasAuthority('VIEW_SUBJECTS')")
     @GetMapping("/{id}")
-    HttpEntity<?> getAllSubjectsOfStudyCentre(@CurrentUser User user, @PathVariable long id) {
+    HttpEntity<?> getSubjectOfStudyCentre(@CurrentUser User user, @PathVariable long id) {
         return subjectService.getSingleSubject(user, id);
     }
 
-    @PreAuthorize("hasAuthority('ADD_SUBJECTS')")
+    @PreAuthorize("hasAuthority('ADD_SUBJECT')")
     @PostMapping()
     HttpEntity<?> addSubject(@CurrentUser User user, @RequestBody SubjectDto dto) {
         return subjectService.addSubject(user, dto);
     }
 
-    @PreAuthorize("hasAuthority('EDIT_SUBJECTS')")
+    @PreAuthorize("hasAuthority('EDIT_SUBJECT')")
     @PutMapping("/{id}")
     HttpEntity<?> editSubject(@RequestBody SubjectDto dto, @PathVariable long id) {
         return subjectService.editSubject(id, dto);
     }
 
-    @PreAuthorize("hasAuthority('DELETE_SUBJECTS')")
+    @PreAuthorize("hasAuthority('DELETE_SUBJECT')")
     @DeleteMapping("/{id}")
     HttpEntity<?> deleteSubject(@PathVariable long id) {
         return subjectService.deleteSubject(id);

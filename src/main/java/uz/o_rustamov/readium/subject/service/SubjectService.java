@@ -7,7 +7,7 @@ import uz.o_rustamov.readium.user.model.User;
 
 public interface SubjectService {
 
-    HttpEntity<ApiResponse> getSubjectsOfStudyCentre(User user);
+    HttpEntity<ApiResponse> getSubjectsOfStudyCentre(User user, int page, int size);
 
     HttpEntity<ApiResponse> getSingleSubject(User user, long id);
 
