@@ -19,14 +19,14 @@ public class StudentGradeController {
     }
 
     @GetMapping
-    HttpEntity<?> getMyGrades(@CurrentUser User user) {
-        return studentGradeService.getMyGrades(user);
+    HttpEntity<?> getMyGrades(@CurrentUser User user, @RequestParam("page") int page, @RequestParam("size") int size) {
+        return studentGradeService.getMyGrades(user, page, size);
     }
 
     @PreAuthorize("hasAuthority('VIEW_GRADES')")
     @GetMapping("/user/{userId}")
-    HttpEntity<?> getUserGrades(@PathVariable long userId) {
-        return studentGradeService.getUserGrades(userId);
+    HttpEntity<?> getUserGrades(@PathVariable long userId, @RequestParam("page") int page, @RequestParam("size") int size) {
+        return studentGradeService.getUserGrades(userId,page, size);
     }
 
     @PreAuthorize("hasAuthority('ASSESS_STUDENT')")

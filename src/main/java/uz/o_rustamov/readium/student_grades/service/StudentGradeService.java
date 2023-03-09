@@ -6,9 +6,9 @@ import uz.o_rustamov.readium.user.model.User;
 
 public interface StudentGradeService {
 
-    HttpEntity<ApiResponse> getMyGrades(User user);
+    HttpEntity<ApiResponse> getMyGrades(User user, int page, int size);
 
-    HttpEntity<ApiResponse> getUserGrades(long studentId);
+    HttpEntity<ApiResponse> getUserGrades(long studentId, int page, int size);
 
     HttpEntity<ApiResponse> assessStudent(long studentId, long assignmentId, int grade);
 

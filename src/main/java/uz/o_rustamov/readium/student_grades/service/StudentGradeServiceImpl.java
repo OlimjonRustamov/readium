@@ -1,5 +1,6 @@
 package uz.o_rustamov.readium.student_grades.service;
 
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -31,13 +32,13 @@ public class StudentGradeServiceImpl implements StudentGradeService {
     }
 
     @Override
-    public HttpEntity<ApiResponse> getMyGrades(User user) {
-        return ResponseEntity.ok(new ApiResponse(null, 200, studentGradeRepository.findAllByStudent_Id(user.getId())));
+    public HttpEntity<ApiResponse> getMyGrades(User user, int page, int size) {
+        return ResponseEntity.ok(new ApiResponse(null, 200, studentGradeRepository.findAllByStudent_Id(user.getId(), PageRequest.of(page, size))));
     }
 
     @Override
-    public HttpEntity<ApiResponse> getUserGrades(long studentId) {
-        return ResponseEntity.ok(new ApiResponse(null, 200, studentGradeRepository.findAllByStudent_Id(studentId)));
+    public HttpEntity<ApiResponse> getUserGrades(long studentId, int page, int size) {
+        return ResponseEntity.ok(new ApiResponse(null, 200, studentGradeRepository.findAllByStudent_Id(studentId, PageRequest.of(page, size))));
     }
 
     @Override
