@@ -18,14 +18,14 @@ public class StudentCourseController {
     }
 
     @GetMapping
-    HttpEntity<?> getMyCourses(@CurrentUser User user) {
-        return studentCourseService.getMyCourses(user);
+    HttpEntity<?> getMyCourses(@CurrentUser User user, @RequestParam("page") int page, @RequestParam("size") int size) {
+        return studentCourseService.getMyCourses(user, page, size);
     }
 
     @PreAuthorize("hasAuthority('VIEW_STUDENT_COURSES')")
     @GetMapping("/{id}")
-    HttpEntity<?> getUserCourses(@PathVariable long id) {
-        return studentCourseService.getUserCourses(id);
+    HttpEntity<?> getUserCourses(@PathVariable long id, @RequestParam("page") int page, @RequestParam("size") int size) {
+        return studentCourseService.getUserCourses(id, page, size);
     }
 
     @PreAuthorize("hasAuthority('ATTACH_STUDENT_TO_GROUP')")

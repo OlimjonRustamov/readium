@@ -7,9 +7,9 @@ import uz.o_rustamov.readium.user.model.User;
 
 public interface StudentCourseService {
 
-    HttpEntity<ApiResponse> getMyCourses(User user);
+    HttpEntity<ApiResponse> getMyCourses(User user, int page, int size);
 
-    HttpEntity<ApiResponse> getUserCourses(long studentId);
+    HttpEntity<ApiResponse> getUserCourses(long studentId, int page, int size);
 
     HttpEntity<ApiResponse> removeStudentFromGroup(long userId, long groupId);
 

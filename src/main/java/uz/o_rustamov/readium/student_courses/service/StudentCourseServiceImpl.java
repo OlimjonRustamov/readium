@@ -1,5 +1,6 @@
 package uz.o_rustamov.readium.student_courses.service;
 
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -30,13 +31,13 @@ public class StudentCourseServiceImpl implements StudentCourseService {
     }
 
     @Override
-    public HttpEntity<ApiResponse> getMyCourses(User user) {
-        return ResponseEntity.ok(new ApiResponse(null, 200, studentCourseRepository.findAllByStudent_Id(user.getId())));
+    public HttpEntity<ApiResponse> getMyCourses(User user, int page, int size) {
+        return ResponseEntity.ok(new ApiResponse(null, 200, studentCourseRepository.findAllByStudent_Id(user.getId(), PageRequest.of(page, size))));
     }
 
     @Override
-    public HttpEntity<ApiResponse> getUserCourses(long studentId) {
-        return ResponseEntity.ok(new ApiResponse(null, 200, studentCourseRepository.findAllByStudent_Id(studentId)));
+    public HttpEntity<ApiResponse> getUserCourses(long studentId, int page, int size) {
+        return ResponseEntity.ok(new ApiResponse(null, 200, studentCourseRepository.findAllByStudent_Id(studentId, PageRequest.of(page, size))));
     }
 
     @Override
@@ -52,11 +53,11 @@ public class StudentCourseServiceImpl implements StudentCourseService {
     @Override
     public HttpEntity<ApiResponse> attachStudentToGroup(long userid, long groupId) {
         Optional<User> optionalUser = userRepository.findById(userid);
-        if(!optionalUser.isPresent()) return NOT_FOUND;
+        if (!optionalUser.isPresent()) return NOT_FOUND;
         User user = optionalUser.get();
 
         Optional<Group> optionalGroup = groupRepository.findById(groupId);
-        if(!optionalGroup.isPresent()) return NOT_FOUND;
+        if (!optionalGroup.isPresent()) return NOT_FOUND;
         Group group = optionalGroup.get();
 
         StudentCourse studentCourse = new StudentCourse();
