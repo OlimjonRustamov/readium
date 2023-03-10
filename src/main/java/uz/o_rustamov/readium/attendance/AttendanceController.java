@@ -18,14 +18,14 @@ public class AttendanceController {
     }
 
     @GetMapping("/my")
-    HttpEntity<?> getMyAttendances(@CurrentUser User user, @RequestParam long group_id) {
-        return attendanceService.getMyAttendances(user, group_id);
+    HttpEntity<?> getMyAttendances(@CurrentUser User user, @RequestParam long group_id, @RequestParam("page") int page, @RequestParam("size") int size) {
+        return attendanceService.getMyAttendances(user, group_id, page, size);
     }
 
     @PreAuthorize("hasAuthority('VIEW_ATTENDANCES')")
     @GetMapping("/user")
-    HttpEntity<?> getUserAttendances(@RequestParam long user_id, @RequestParam long group_id) {
-        return attendanceService.getUserAttendances(user_id, group_id);
+    HttpEntity<?> getUserAttendances(@RequestParam long user_id, @RequestParam long group_id, @RequestParam("page") int page, @RequestParam("size") int size) {
+        return attendanceService.getUserAttendances(user_id, group_id, page, size);
     }
 
     @PreAuthorize("hasAuthority('ADD_ATTENDANCE')")

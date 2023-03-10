@@ -1,5 +1,6 @@
 package uz.o_rustamov.readium.attendance.service;
 
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -32,13 +33,13 @@ public class AttendanceServiceImpl implements AttendanceService {
 
 
     @Override
-    public HttpEntity<ApiResponse> getMyAttendances(User user, long courseId) {
-        return ResponseEntity.ok(new ApiResponse(null, 200, attendanceRepository.findAllByStudent_IdAndGroup_Id(user.getId(), courseId)));
+    public HttpEntity<ApiResponse> getMyAttendances(User user, long courseId, int page, int size) {
+        return ResponseEntity.ok(new ApiResponse(null, 200, attendanceRepository.findAllByStudent_IdAndGroup_Id(user.getId(), courseId, PageRequest.of(page, size))));
     }
 
     @Override
-    public HttpEntity<ApiResponse> getUserAttendances(long userId, long courseId) {
-        return ResponseEntity.ok(new ApiResponse(null, 200, attendanceRepository.findAllByStudent_IdAndGroup_Id(userId, courseId)));
+    public HttpEntity<ApiResponse> getUserAttendances(long userId, long courseId, int page, int size) {
+        return ResponseEntity.ok(new ApiResponse(null, 200, attendanceRepository.findAllByStudent_IdAndGroup_Id(userId, courseId, PageRequest.of(page, size))));
     }
 
     @Override
