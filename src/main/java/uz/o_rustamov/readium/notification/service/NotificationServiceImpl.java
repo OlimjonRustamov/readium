@@ -27,7 +27,7 @@ public class NotificationServiceImpl implements NotificationService {
 
 
     @Override
-    public HttpEntity<ApiResponse> getMyNotifications(User user) {
+    public HttpEntity<ApiResponse> getMyNotifications(User user, int page, int size) {
         return ResponseEntity.ok(new ApiResponse(null, 200, notificationRepository.findByUser_Id(user.getId())));
     }
 
@@ -36,7 +36,10 @@ public class NotificationServiceImpl implements NotificationService {
         Optional<Notification> optionalNotification = notificationRepository.findById(id);
         if (optionalNotification.isPresent()) {
             if (user.getId().equals(optionalNotification.get().getId())) {
-                return ResponseEntity.ok(new ApiResponse(null, 200, optionalNotification.get()));
+                Notification notification = optionalNotification.get();
+                notification.setRead(true);
+                notificationRepository.save(notification);
+                return ResponseEntity.ok(new ApiResponse(null, 200, notification));
             } else return FORBIDDEN_EXCEPTION;
         } else return NOT_FOUND;
     }
@@ -49,18 +52,5 @@ public class NotificationServiceImpl implements NotificationService {
         } catch (Exception ex) {
             return ResponseEntity.status(406).body(new ApiResponse(ex.getMessage(), 406, null));
         }
-    }
-
-    @Override
-    public HttpEntity<ApiResponse> markAsRead(User user, long id) {
-        Optional<Notification> optionalNotification = notificationRepository.findById(id);
-        if (!optionalNotification.isPresent()) return NOT_FOUND;
-        Notification notification = optionalNotification.get();
-        if (notification.getUser().getId() == user.getId()) {
-            notification.setRead(true);
-            notificationRepository.save(notification);
-            return SUCCESS;
-        } else return ResponseEntity.status(403).body(
-                new ApiResponse("Ushbu notification siz uchun emas", 403, null));
     }
 }

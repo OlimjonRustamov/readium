@@ -1,11 +1,9 @@
 package uz.o_rustamov.readium.notification;
 
 import org.springframework.http.HttpEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import uz.o_rustamov.readium.annotation.CurrentUser;
-import uz.o_rustamov.readium.notification.dto.NotificationDto;
 import uz.o_rustamov.readium.notification.service.NotificationServiceImpl;
 import uz.o_rustamov.readium.user.model.User;
 
@@ -21,8 +19,8 @@ public class NotificationController {
     }
 
     @GetMapping()
-    public HttpEntity<?> getMyNotifications(@CurrentUser User user) {
-        return notificationService.getMyNotifications(user);
+    public HttpEntity<?> getMyNotifications(@CurrentUser User user, @RequestParam("page") int page, @RequestParam("size") int size) {
+        return notificationService.getMyNotifications(user, page, size);
     }
 
     @GetMapping("/{id}")
