@@ -1,5 +1,6 @@
 package uz.o_rustamov.readium.payment.service;
 
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -32,16 +33,16 @@ public class PaymentServiceImpl implements PaymentService {
     }
 
     @Override
-    public HttpEntity<ApiResponse> getMyPayments(User user) {
-        return ResponseEntity.ok(new ApiResponse(null, 200, paymentRepository.findAllByStudent_Id(user.getId())));
+    public HttpEntity<ApiResponse> getMyPayments(User user, int page, int size) {
+        return ResponseEntity.ok(new ApiResponse(null, 200, paymentRepository.findAllByStudent_Id(user.getId(), PageRequest.of(page, size))));
     }
 
     @Override
-    public HttpEntity<ApiResponse> getUserPayments(long id) {
+    public HttpEntity<ApiResponse> getUserPayments(long id, int page, int size) {
         Optional<User> optionalUser = userRepository.findById(id);
         if (!optionalUser.isPresent()) return NOT_FOUND;
         User user = optionalUser.get();
-        return ResponseEntity.ok(new ApiResponse(null, 200, paymentRepository.findAllByStudent_Id(user.getId())));
+        return ResponseEntity.ok(new ApiResponse(null, 200, paymentRepository.findAllByStudent_Id(user.getId(), PageRequest.of(page, size))));
     }
 
     @Override

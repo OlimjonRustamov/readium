@@ -7,8 +7,8 @@ import uz.o_rustamov.readium.user.model.User;
 
 public interface PaymentService {
 
-    HttpEntity<ApiResponse> getMyPayments(User user);
-    HttpEntity<ApiResponse> getUserPayments(long id);
+    HttpEntity<ApiResponse> getMyPayments(User user, int page, int size);
+    HttpEntity<ApiResponse> getUserPayments(long id, int page, int size);
 
     HttpEntity<ApiResponse> getSinglePayment(long id);
     HttpEntity<ApiResponse> createPayment(PaymentDto dto);

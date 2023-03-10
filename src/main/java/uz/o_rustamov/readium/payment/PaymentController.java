@@ -21,8 +21,8 @@ public class PaymentController {
     }
 
     @GetMapping
-    public HttpEntity<?> getMyPayments(@CurrentUser User user) {
-        return paymentService.getMyPayments(user);
+    public HttpEntity<?> getMyPayments(@CurrentUser User user, @RequestParam("page") int page, @RequestParam("size") int size) {
+        return paymentService.getMyPayments(user, page, size);
     }
 
     @PreAuthorize("hasAuthority('VIEW_PAYMENTS')")
@@ -33,8 +33,8 @@ public class PaymentController {
 
     @PreAuthorize("hasAuthority('VIEW_PAYMENTS')")
     @GetMapping("/user/{id}")
-    public HttpEntity<?> getUserPayments(@PathVariable int id) {
-        return paymentService.getUserPayments(id);
+    public HttpEntity<?> getUserPayments(@PathVariable int id, @RequestParam("page") int page, @RequestParam("size") int size) {
+        return paymentService.getUserPayments(id, page, size);
     }
 
     @PreAuthorize("hasAuthority('DELETE_PAYMENT')")
