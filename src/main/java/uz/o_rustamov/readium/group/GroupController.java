@@ -24,8 +24,8 @@ public class GroupController {
 
     @PreAuthorize("hasAuthority('VIEW_GROUPS')")
     @GetMapping()
-    public HttpEntity<?> getStudyCentreGroups(@CurrentUser User user) {
-        return groupService.getAllGroupsOfStudyCentre(user);
+    public HttpEntity<?> getStudyCentreGroups(@CurrentUser User user, @RequestParam("page") int page, @RequestParam("size") int size) {
+        return groupService.getAllGroupsOfStudyCentre(user, page, size);
     }
 
     @PreAuthorize("hasAuthority('VIEW_GROUPS')")

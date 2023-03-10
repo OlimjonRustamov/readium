@@ -62,7 +62,7 @@ public class AttachmentController {
     }
 
     @GetMapping(value = "/info/{id}")
-    public HttpEntity<ApiResponse> getAttachmentById(@PathVariable int id) {
+    public HttpEntity<ApiResponse> getAttachmentById(@PathVariable long id) {
         Optional<Attachment> optionalAttachment = attachmentRepository.findById(id);
         if (optionalAttachment.isPresent())
             return ResponseEntity.ok(new ApiResponse(null, 200, optionalAttachment.get()));
@@ -70,7 +70,7 @@ public class AttachmentController {
     }
 
     @GetMapping(value = "/download/{id}")
-    public void downloadById(@PathVariable int id, HttpServletResponse response) throws IOException {
+    public void downloadById(@PathVariable long id, HttpServletResponse response) throws IOException {
         Optional<Attachment> optionalAttachment = attachmentRepository.findById(id);
         if (optionalAttachment.isPresent()) {
             Attachment attachment = optionalAttachment.get();

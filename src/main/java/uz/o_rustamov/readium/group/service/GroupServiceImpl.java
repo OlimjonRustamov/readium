@@ -1,5 +1,6 @@
 package uz.o_rustamov.readium.group.service;
 
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -31,8 +32,8 @@ public class GroupServiceImpl implements GroupService {
     }
 
     @Override
-    public HttpEntity<ApiResponse> getAllGroupsOfStudyCentre(User user) {
-        return ResponseEntity.ok(new ApiResponse(null, 200, groupRepository.findByStudyCentre_Id(user.getStudyCentre().getId())));
+    public HttpEntity<ApiResponse> getAllGroupsOfStudyCentre(User user, int page, int size) {
+        return ResponseEntity.ok(new ApiResponse(null, 200, groupRepository.findByStudyCentre_Id(user.getStudyCentre().getId(), PageRequest.of(page, size))));
     }
 
     @Override

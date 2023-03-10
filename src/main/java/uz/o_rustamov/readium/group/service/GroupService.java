@@ -7,7 +7,7 @@ import uz.o_rustamov.readium.user.model.User;
 
 public interface GroupService {
 
-    HttpEntity<ApiResponse> getAllGroupsOfStudyCentre(User user);
+    HttpEntity<ApiResponse> getAllGroupsOfStudyCentre(User user, int page, int size);
 
     HttpEntity<ApiResponse> getSingleGroup(long groupId);
 
