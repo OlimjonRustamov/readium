@@ -10,21 +10,15 @@ import uz.o_rustamov.readium.user.repository.UserRepository;
 @Configuration
 public class AdditionalConfig {
 
-    @Bean
-    PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
-
     UserRepository userRepository;
     StudyCentreRepository studyCentreRepository;
-
     public AdditionalConfig(UserRepository userRepository, StudyCentreRepository studyCentreRepository) {
         this.userRepository = userRepository;
         this.studyCentreRepository = studyCentreRepository;
     }
 
     @Bean
-    UserBelongsToStudyCentre userBelongsToStudyCentre() {
-        return new UserBelongsToStudyCentre(userRepository, studyCentreRepository);
+    PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
     }
 }

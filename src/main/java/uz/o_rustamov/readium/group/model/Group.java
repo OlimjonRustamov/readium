@@ -10,7 +10,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Data
-@Entity
+@Entity(name = "course")
 public class Group {
 
     @Id
