@@ -1,6 +1,5 @@
 package uz.o_rustamov.readium.devices.service;
 
-import org.omg.PortableInterceptor.SUCCESSFUL;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
