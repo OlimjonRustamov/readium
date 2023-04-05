@@ -24,12 +24,10 @@ public class JwtFilter extends OncePerRequestFilter {
     JwtProvider jwtProvider;
     MyUserDetailsService myUserDetailsService;
 
-    PasswordEncoder passwordEncoder;
 
-    public JwtFilter(JwtProvider jwtProvider, MyUserDetailsService myUserDetailsService, PasswordEncoder passwordEncoder) {
+    public JwtFilter(JwtProvider jwtProvider, MyUserDetailsService myUserDetailsService) {
         this.jwtProvider = jwtProvider;
         this.myUserDetailsService = myUserDetailsService;
-        this.passwordEncoder = passwordEncoder;
     }
 
     @Override
@@ -57,7 +55,7 @@ public class JwtFilter extends OncePerRequestFilter {
                 return;
             }
         } else if (!request.getServletPath().equals("/api/auth/login")) {
-            performError(response, "Identifikatsiyadan o'tish talab etiladi\n"+passwordEncoder.encode("123"));
+            performError(response, "Identifikatsiyadan o'tish talab etiladi");
             return;
         }
         filterChain.doFilter(request, response);
