@@ -23,18 +23,18 @@ public class MyDataLoader implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        Role role = new Role();
-        role.setName("ROLE_DEVELOPER");
-        role.setPermissionList(Arrays.asList(Permission.values()));
-        role = roleRepository.save(role);
-
-        User user = new User();
-        user.setUsername("olimjon_rustamov");
-        user.setPhoneNumber("+998900123477");
-        user.setFullName("Olimjon Rustamov");
-        user.setRole(role);
-        user.setEnabled(true);
-        user.setPassword("$2a$12$cD2bclnIqmmLoPD88vcEeeGj4OehQv6tICc8xIhlub6YqRBfJonyq");
-        userRepository.save(user);
+//        Role role = new Role();
+//        role.setName("ROLE_DEVELOPER");
+//        role.setPermissionList(Arrays.asList(Permission.values()));
+//        role = roleRepository.save(role);
+//
+//        User user = new User();
+//        user.setUsername("olimjon_rustamov");
+//        user.setPhoneNumber("+998900123477");
+//        user.setFullName("Olimjon Rustamov");
+//        user.setRole(role);
+//        user.setEnabled(true);
+//        user.setPassword("$2a$12$cD2bclnIqmmLoPD88vcEeeGj4OehQv6tICc8xIhlub6YqRBfJonyq");
+//        userRepository.save(user);
     }
 }
