@@ -20,6 +20,7 @@ public class StudentGrade {
     @JsonIgnore
     private long createdAt = new Date().getTime();
 
+    @JsonIgnore
     @ManyToOne
     User student;
 

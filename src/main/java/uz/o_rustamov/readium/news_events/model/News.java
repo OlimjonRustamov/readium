@@ -30,6 +30,7 @@ public class News {
     @Column(nullable = false)
     private java.sql.Date date;
 
+    @JsonIgnore
     @ManyToOne
     StudyCentre studyCentre;
 

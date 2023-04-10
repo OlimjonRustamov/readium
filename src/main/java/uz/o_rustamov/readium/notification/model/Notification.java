@@ -34,6 +34,7 @@ public class Notification {
     @JsonProperty("is_read")
     private boolean isRead;
 
+    @JsonIgnore
     @ManyToOne
     User user;
 }

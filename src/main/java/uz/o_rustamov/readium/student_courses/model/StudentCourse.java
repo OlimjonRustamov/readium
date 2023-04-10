@@ -25,7 +25,7 @@ public class StudentCourse {
     private long createdAt = new Date().getTime();
 
     @ManyToOne
-    @JsonProperty("student_id")
+    @JsonProperty("student")
     User student;
 
     @ManyToOne

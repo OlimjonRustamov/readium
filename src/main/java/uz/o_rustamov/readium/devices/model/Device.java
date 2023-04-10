@@ -25,6 +25,7 @@ public class Device {
     @Column(nullable = false)
     private String deviceName;
 
+    @JsonIgnore
     @ManyToOne
     User user;
 

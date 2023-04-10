@@ -22,6 +22,7 @@ public class Subject {
     @Column(nullable = false, unique = true)
     private String name;
 
+    @JsonIgnore
     @ManyToOne
     StudyCentre studyCentre;
 

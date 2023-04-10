@@ -19,6 +19,7 @@ public class Payment {
     @JsonIgnore
     private long createdAt = new Date().getTime();
 
+    @JsonIgnore
     @ManyToOne
     private User student;
 

@@ -27,6 +27,7 @@ public class Group {
     @ManyToOne
     Subject subject;
 
+    @JsonIgnore
     @ManyToOne
     StudyCentre studyCentre;
 

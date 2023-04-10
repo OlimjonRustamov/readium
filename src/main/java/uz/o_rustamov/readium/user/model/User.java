@@ -54,11 +54,12 @@ public class User implements UserDetails {
     @ManyToOne
     Role role;
 
+    @JsonIgnore
     @OneToOne
     Attachment attachment;
 
+    @JsonIgnore
     @ManyToOne
-    @JsonProperty("study_centre")
     StudyCentre studyCentre;
 
     @JsonIgnore
