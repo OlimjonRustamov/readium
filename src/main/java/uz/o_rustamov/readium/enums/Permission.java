@@ -48,4 +48,7 @@ public enum Permission {
     DELETE_PAYMENT,
     CREATE_PAYMENT,
 
+    VIEW_ATTENDANCES,
+    ADD_ATTENDANCE,
+    EDIT_ATTENDANCE,
 }
