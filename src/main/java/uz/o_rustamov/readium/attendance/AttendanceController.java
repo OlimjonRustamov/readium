@@ -7,6 +7,7 @@ import uz.o_rustamov.readium.annotation.CurrentUser;
 import uz.o_rustamov.readium.attendance.service.AttendanceServiceImpl;
 import uz.o_rustamov.readium.user.model.User;
 
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @RequestMapping("/api/attendance")
 public class AttendanceController {

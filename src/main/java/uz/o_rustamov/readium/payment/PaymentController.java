@@ -10,6 +10,7 @@ import uz.o_rustamov.readium.user.model.User;
 
 import javax.validation.Valid;
 
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @RequestMapping("/api/payment")
 public class PaymentController {

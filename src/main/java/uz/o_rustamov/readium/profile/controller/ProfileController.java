@@ -12,6 +12,7 @@ import uz.o_rustamov.readium.user.model.User;
 
 import javax.validation.Valid;
 
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @Transactional
 @RestController
 @RequestMapping("/api/profile")

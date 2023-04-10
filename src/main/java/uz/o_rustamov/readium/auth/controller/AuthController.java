@@ -2,16 +2,14 @@ package uz.o_rustamov.readium.auth.controller;
 
 import org.springframework.http.HttpEntity;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import uz.o_rustamov.readium.ApiResponse;
 import uz.o_rustamov.readium.auth.model.LoginDto;
 import uz.o_rustamov.readium.auth.service.AuthServiceImpl;
 
 import javax.validation.Valid;
 
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @Transactional
 @RestController
 @RequestMapping("/api/auth")

@@ -7,6 +7,7 @@ import uz.o_rustamov.readium.annotation.CurrentUser;
 import uz.o_rustamov.readium.student_courses.service.StudentCourseServiceImpl;
 import uz.o_rustamov.readium.user.model.User;
 
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @RequestMapping("/api/student-course")
 public class StudentCourseController {

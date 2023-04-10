@@ -3,10 +3,7 @@ package uz.o_rustamov.readium.files;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.FileCopyUtils;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import uz.o_rustamov.readium.ApiResponse;
@@ -23,6 +20,7 @@ import java.util.Optional;
 import static uz.o_rustamov.readium.Constants.NOT_FOUND;
 import static uz.o_rustamov.readium.Constants.SUCCESS;
 
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController("/api/file")
 public class AttachmentController {
 

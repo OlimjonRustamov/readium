@@ -7,7 +7,7 @@ import uz.o_rustamov.readium.annotation.CurrentUser;
 import uz.o_rustamov.readium.devices.service.DeviceServiceImpl;
 import uz.o_rustamov.readium.user.model.User;
 
-
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @Transactional
 @RestController
 @RequestMapping("/api/device")

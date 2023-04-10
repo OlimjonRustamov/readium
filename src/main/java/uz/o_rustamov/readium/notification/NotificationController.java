@@ -7,6 +7,7 @@ import uz.o_rustamov.readium.annotation.CurrentUser;
 import uz.o_rustamov.readium.notification.service.NotificationServiceImpl;
 import uz.o_rustamov.readium.user.model.User;
 
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @Transactional
 @RestController
 @RequestMapping("/api/notification")

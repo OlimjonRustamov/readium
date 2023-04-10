@@ -9,6 +9,7 @@ import uz.o_rustamov.readium.role.service.RoleServiceImpl;
 
 import javax.validation.Valid;
 
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @Transactional
 @RestController
 @RequestMapping("/api/role")

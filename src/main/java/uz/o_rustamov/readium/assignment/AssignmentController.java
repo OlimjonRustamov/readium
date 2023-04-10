@@ -9,6 +9,7 @@ import uz.o_rustamov.readium.assignment.service.AssignmentServiceImpl;
 
 import javax.validation.Valid;
 
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @Transactional
 @RequestMapping("/api/assignment")

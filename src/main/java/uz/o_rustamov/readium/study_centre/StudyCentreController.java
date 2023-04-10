@@ -11,6 +11,7 @@ import uz.o_rustamov.readium.study_centre.service.StudyCentreServiceImpl;
 
 import javax.validation.Valid;
 
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @Transactional
 @RestController
 @RequestMapping("/api/study-centre")

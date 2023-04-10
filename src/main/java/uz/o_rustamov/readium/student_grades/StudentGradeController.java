@@ -8,6 +8,7 @@ import uz.o_rustamov.readium.annotation.CurrentUser;
 import uz.o_rustamov.readium.student_grades.service.StudentGradeServiceImpl;
 import uz.o_rustamov.readium.user.model.User;
 
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @RequestMapping("/api/grade")
 public class StudentGradeController {

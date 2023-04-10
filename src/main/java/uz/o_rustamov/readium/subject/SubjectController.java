@@ -9,6 +9,7 @@ import uz.o_rustamov.readium.subject.dto.SubjectDto;
 import uz.o_rustamov.readium.subject.service.SubjectServiceImpl;
 import uz.o_rustamov.readium.user.model.User;
 
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @Transactional
 @RestController
 @RequestMapping("/api/subject")
