@@ -18,8 +18,7 @@ public class Payment {
     @Column(nullable = false)
     @JsonIgnore
     private long createdAt = new Date().getTime();
-
-    @JsonIgnore
+    
     @ManyToOne
     private User student;
 
